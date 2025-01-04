@@ -43,9 +43,9 @@ export const burgerConstructorSlice = createSlice({
         (_, i) => i != action.payload
       );
     },
-    moveIngredient(state, action: PayloadAction<{type: 'up' | 'down', index: number}>) {
-      const index1 = action.payload.index;
-      const index2 = action.payload.type == 'up' ? index1 - 1 : index1 + 1;
+    moveIngredient(state, action: PayloadAction<{fromIndex: number, toIndex: number}>) {
+      const index1 = action.payload.fromIndex;
+      const index2 = action.payload.toIndex;
       [state.constructorItems.ingredients[index1], state.constructorItems.ingredients[index2]] = [
         state.constructorItems.ingredients[index2],
         state.constructorItems.ingredients[index1]
