@@ -5,7 +5,7 @@ import { TUser } from "@utils-types";
 
 export const loginUser = createAsyncThunk(
     'user/loginUser',
-    async (data: TLoginData, { rejectWithValue}) => {
+    async (data: TLoginData, { rejectWithValue }) => {
         const res = await loginUserApi(data);
         if(!res?.success)
             return rejectWithValue(data);
@@ -40,14 +40,7 @@ export const logoutUser = createAsyncThunk(
 
 export const getUser = createAsyncThunk(
     'user/getUser',
-    async (_, { rejectWithValue }) => { 
-        try {
-            const res = await getUserApi()
-            return res;
-        } catch(err) {
-            rejectWithValue({});
-        }
-    }
+    async () => await getUserApi()
 );
 
 export const updateUser = createAsyncThunk(
