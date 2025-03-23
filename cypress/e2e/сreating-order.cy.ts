@@ -9,30 +9,25 @@ describe('Создание заказа', () => {
     });
 
     it('Добавление ингредиентов', () => {
-        cy.get(".src-components-ui-burger-constructor-burger-constructor-module__noBuns").should("have.length", 3);
+        cy.get("[data-cy='noBuns']").should("have.length", 3);
 
-        cy.get(".src-components-ui-ingredients-category-ingredients-category-module__items").first()
-            .find(".src-components-ui-burger-ingredient-burger-ingredient-module__container").first()
-            .find("button").click();
+        cy.clickIngredientInIndexedContainer(0);
 
-        cy.get(".src-components-ui-ingredients-category-ingredients-category-module__items").eq(1)
-        .find(".src-components-ui-burger-ingredient-burger-ingredient-module__container").first()
-        .find("button").click();
+        cy.clickIngredientInIndexedContainer(1);
 
-        cy.get(".src-components-ui-burger-constructor-burger-constructor-module__element").should("be.visible");
-        cy.get(".src-components-ui-burger-constructor-element-burger-constructor-element-module__element_fullwidth").should("be.visible");
+        cy.get("[data-cy='burger-constructor-element']").should("be.visible");
+        cy.get("[data-cy='burger-constructor-element-fullwidth']").should("be.visible");
 
-        cy.get(".src-components-ui-burger-constructor-burger-constructor-module__total")
-            .find("button").click();
+        cy.get("[data-cy='place-order']").click();
 
-        cy.get(".src-components-ui-modal-modal-module__modal").should("exist");
-        cy.get(".src-components-ui-order-details-order-details-module__title ").first()
+        cy.checkModalViibility(true);
+        cy.get("[data-cy='order-details-title']").first()
             .should('have.text', '71808');
 
-        cy.get(".src-components-ui-modal-modal-module__modal")
+        cy.get("[data-cy='modal']")
             .find("button")
             .click();
       
-        cy.get(".src-components-ui-modal-modal-module__modal").should("not.exist");
+        cy.checkModalViibility(false);
     });
 });
