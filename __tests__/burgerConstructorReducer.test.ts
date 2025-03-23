@@ -23,6 +23,7 @@ describe('Редьюсер слайса constructor', ()=> {
         image: 'image.png',
         image_mobile: 'image_mobile.png',
         image_large: 'image_large.png',
+        __v: 0
       };
       const initialState = burgerConstructorSlice.getInitialState();
       const action = addIngredient(ingredient);
@@ -44,6 +45,7 @@ describe('Редьюсер слайса constructor', ()=> {
         image: 'image.png',
         image_mobile: 'image_mobile.png',
         image_large: 'image_large.png',
+        __v: 0
       };
   
       const initialState = {
@@ -71,6 +73,7 @@ describe('Редьюсер слайса constructor', ()=> {
         image: 'image.png',
         image_mobile: 'image_mobile.png',
         image_large: 'image_large.png',
+        __v: 0
       };
   
       const ingredient2: TIngredient = {
@@ -85,6 +88,7 @@ describe('Редьюсер слайса constructor', ()=> {
         image: 'image2.png',
         image_mobile: 'image2_mobile.png',
         image_large: 'image2_large.png',
+        __v: 0
       };
   
       const initialState = {

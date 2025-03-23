@@ -33,6 +33,7 @@ describe('Редьюсер слайса burgerIngredients', () => {
           image: 'image1.png',
           image_mobile: 'image1_mobile.png',
           image_large: 'image1_large.png',
+          __v: 0
         },
       ];
 
